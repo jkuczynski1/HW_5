@@ -16,7 +16,7 @@ https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#C.2B.2B
 #include <algorithm> // for std::partition in quicksort...generally used across all algorithms.
 #include <functional> // for std::less in quicksort, merge sort
 #include <iostream>
-#include <iterator>
+#include <iterator>//used in bubble, insertion, merge sort methods.
 #include <time.h>//for shell sort
 using namespace std;
 int main()

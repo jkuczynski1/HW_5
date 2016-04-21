@@ -27,9 +27,11 @@ const int MaxNum = 10001;//for a file of any size < max integer is 10,000.
 int timecounter = 0; //counter to check the number of steps for each sort method.
 time_t timer;
 time_t resultTimer;
+//example:
+/*
 //*Merge sort code*\\-lines 28-72
 //
-//lines 28-40 and 50, 52, 54 (excet timecounter++;) came from rosettacode.
+//lines 28-40 and 50, 52, 54 (excet timecounter++;) came from rosettacode. This is NOT the final implementation. 
 template<typename RandomAccessIterator, typename Order>
 void Merge_sort(RandomAccessIterator first, RandomAccessIterator last, Order Merge_order)
 {
@@ -37,41 +39,25 @@ void Merge_sort(RandomAccessIterator first, RandomAccessIterator last, Order Mer
 	if (last - first > 1)//if second # picked is larger than first
 	{
 		RandomAccessIterator mid = first + (last - first) / 2; //create a value middle that is > first but < last
-		Merge_sort(first, mid, Merge_order);
+		Merge_sort(first, mid, Merge_order);//sort first in comparison to mid
 		timecounter++;
-		Merge_sort(mid, last, Merge_order);
+		Merge_sort(mid, last, Merge_order);//sort mid in comparison to last
 		timecounter++;
-		inplace_merge(first, mid, last, Merge_order);
-		timecounter++;
-	}
-	/*if (last - first == 0)
-	{
-		cout << "There is a problem with " << last << "and " << first << ".../nThey are equal, so we cannot sort them." << endl;
-		timecounter++;
-			break;
-	}
-	if (last - first < 0)//have it drop last before first, as last - first < 0 == that LAST is SMALLER than first.
-	{
-		RandomAccessIterator mid = last + (first- last) / 2; //create a value middle that is (>) last but (<) first
-		Merge_sort(last, mid, Merge_order);
-		timecounter++;
-		Merge_sort(mid, first, Merge_order);
-		timecounter++;
-		inplace_merge(last, mid, first, Merge_order);
+		inplace_merge(first, mid, last, Merge_order); //sort all 3.
 		timecounter++;
 	}
-	unneeded code.*/
 }
 
 template<typename RandomAccessIterator>
-void Merge_sort(RandomAccessIterator first, RandomAccessIterator last)
+void Merge_sort(RandomAccessIterator first, RandomAccessIterator last) this is where my code is different.
 {
 	timer = time(NULL);
 	cout << "Merge sort beginning on: " << timer << endl;;
 	Merge_sort(first, last, std::less<typename std::iterator_traits<RandomAccessIterator>::value_type>());//supposed to merge sort first, last, and less.
 	resultTimer= time(NULL);
 	cout << "Merge sort number of steps : " << timecounter << ", and finished by" << resultTimer <<" . "<< endl;
-}
+	//would return a resorted array as well to array A.
+}*/
 //*end of code*\\
 
 //Bubble sort code\\-74 to 124
@@ -263,7 +249,6 @@ int main()
 		}
 		in.clear(); in.close();//clears and closes file.
 	}
-	//Merge_sort( 1, 3);
     return 0;
 
 	/*Now, seeing as I have run out of time, or am close to it, I plan to outline how I would have went 
@@ -275,7 +260,7 @@ int main()
 	I would apply these to each iteration of the search functions, such that the time one started the search and the time 
 	that a search was finished would be displayed to a user on the console.
 
-	From there, I would implement each algorithm such that the timecounter would be used after 
+	From there, I would implement each algorithm such that the timecounter would be incremented after 
 	each sorting step, resulting in a correctly working counter-one for the number of exchanges. 
 	For the number of comparisons, I would apply it to each test of the numbers in question instead of after each step.
 
@@ -283,6 +268,8 @@ int main()
 
 	cout << sortName << "\n" <<" Number of comparisons: " << NumOfComparisions << "\n" <<" Number of exchanges: " << NumOfEexchanges << endl;
 wich I would then write into the table.
+
+I would offer them to sort again, and repeat the process you see here, probably with a exit code "type q to quit", or something similar.
 
 	*/
 }

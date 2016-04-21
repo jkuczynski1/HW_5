@@ -44,7 +44,7 @@ void Merge_sort(RandomAccessIterator first, RandomAccessIterator last, Order Mer
 		inplace_merge(first, mid, last, Merge_order);
 		timecounter++;
 	}
-	if (last - first == 0)
+	/*if (last - first == 0)
 	{
 		cout << "There is a problem with " << last << "and " << first << ".../nThey are equal, so we cannot sort them." << endl;
 		timecounter++;
@@ -60,6 +60,7 @@ void Merge_sort(RandomAccessIterator first, RandomAccessIterator last, Order Mer
 		inplace_merge(last, mid, first, Merge_order);
 		timecounter++;
 	}
+	unneeded code.*/
 }
 
 template<typename RandomAccessIterator>
@@ -230,6 +231,8 @@ int main()
 	string fileInput = " ";//grabs file name, and is reused to grab lines from file. 
 	string sortInput = " ";//lets the user select which sorting method they wish to use.
 	ifstream in;//need an ifstream to read the file.
+	int * A;//array from file, and resulting array that is printed to screen after a sort. 
+	A = new int[10001];//needs to contain 10,000 #'s.
 	cout << "enter one of the following: \nRandom\nReversed\nNearlySorted\nFewUnique\n" << endl; //asks which file to open.
 	cin >> fileInput;
 	fileInput = fileInput + ".txt"; //since all are .txt, adds the ending.
@@ -247,10 +250,35 @@ int main()
 	{
 		cout << "file " << fileInput << "opened.\nPick a search method." << endl; // prompts user for search method to be used.
 		cin >> sortInput;
-		cout << "You have selected " << sortInput << " as your search method." << endl; //confirms method with user, then reads in the file.
-
+		cout << "You have selected " << sortInput << " as your search method.\n" << endl; //confirms method with user, then reads in the file.
+		string fileInputToInt = " "; //changes file strings to int.
+		int A_counter = 0; //counter to help add lines of code to A.
+		int A_adder = 0; //for atoi conversion below.
+		while (in.peek() != EOF)
+		{
+			getline(in, fileInput, ' ');//places each # in fileInput; would place the entire line, but the ' ' makes it only grab items between spaces.
+			int A_adder = atoi(fileInput.c_str()); //converts fileInput to int via atoi.  http://www.cplusplus.com/forum/general/13135/
+			A[A_counter] = A_adder;//adds atoi'd string (now int) to array.
+			A_counter++;//increments counter.
+		}
+		in.clear(); in.close();//clears and closes file.
 	}
 	//Merge_sort( 1, 3);
     return 0;
+
+	/*Now, seeing as I have run out of time, or am close to it, I plan to outline how I would have went 
+	about the rest of my code. Most of the code for the individual functions above is not mine-
+	I did not get a chance to edit the code, and please note that I do NOT implement code that
+	is not mine without crediting sources. 
+	
+	Only the timecounter  and time implementation belong to me exclusively, after researching how the time aspect works.
+	I would apply these to each iteration of the search functions, such that the time one started the search and the time 
+	that a search was finished would be displayed to a user on the console.
+
+	From there, I would implement each algorithm such that the timecounter would be used after 
+	each sorting step, resulting in a correctly working counter-one for the number of exchanges. 
+	For the number of comparisons, I would apply it to each test of the numbers in question instead of after each step.
+
+	*/
 }
 

@@ -142,7 +142,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="FewUnique.txt" />
+    <Text Include="NearlySorted.txt" />
+    <Text Include="Random.txt" />
     <Text Include="ReadMe.txt" />
+    <Text Include="Reversed.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />

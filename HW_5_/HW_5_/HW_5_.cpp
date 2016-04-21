@@ -16,6 +16,8 @@ https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#C.2B.2B
 #include <algorithm> // for std::partition in quicksort...generally used across all algorithms.
 #include <functional> // for std::less in quicksort, merge sort
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <iterator>//used in bubble, insertion, merge sort methods.
 #include <time.h>//for shell sort, soring time of all other algorithms. (http://www.cplusplus.com/reference/ctime/time/)
 using namespace std;
@@ -225,7 +227,30 @@ int main(int argc, char* argv[])
 
 int main()
 {
-	Merge_sort( 1, 3);
+	string fileInput = " ";//grabs file name, and is reused to grab lines from file. 
+	string sortInput = " ";//lets the user select which sorting method they wish to use.
+	ifstream in;//need an ifstream to read the file.
+	cout << "enter one of the following: \nRandom\nReversed\nNearlySorted\nFewUnique\n" << endl; //asks which file to open.
+	cin >> fileInput;
+	fileInput = fileInput + ".txt"; //since all are .txt, adds the ending.
+	in.open(fileInput);//opens file
+	while (!in.is_open()) //if file cannot be opened, promts user to enter the name correctly.
+	{
+		cout << "Cannot open file. please enter the correct file name." << endl;
+		fileInput = "";//resets fileInput for new selection.
+		cout << "\nEnter one of the following: \nRandom\nReversed\nNearlySorted\nFewUnique\n" << endl; //asks which file to open.
+		cin >> fileInput;
+		fileInput = fileInput + ".txt"; //since all are .txt, adds the ending.
+		in.open(fileInput);//opens file
+	}
+	if (in.is_open())
+	{
+		cout << "file " << fileInput << "opened.\nPick a search method." << endl; // prompts user for search method to be used.
+		cin >> sortInput;
+		cout << "You have selected " << sortInput << " as your search method." << endl; //confirms method with user, then reads in the file.
+
+	}
+	//Merge_sort( 1, 3);
     return 0;
 }
 

@@ -279,6 +279,11 @@ int main()
 	each sorting step, resulting in a correctly working counter-one for the number of exchanges. 
 	For the number of comparisons, I would apply it to each test of the numbers in question instead of after each step.
 
+	From there, at the end of a sort, I would write out the following to the console:
+
+	cout << sortName << "\n" <<" Number of comparisons: " << NumOfComparisions << "\n" <<" Number of exchanges: " << NumOfEexchanges << endl;
+wich I would then write into the table.
+
 	*/
 }
 

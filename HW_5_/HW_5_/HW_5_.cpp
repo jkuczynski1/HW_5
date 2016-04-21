@@ -12,8 +12,12 @@ https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#C.2B.2B
 */
 //firt thing-includes...these are the same as rosettacode as I fould including these made things much easier overall.
 
-#include "stdafx.h"
-
+#include "stdafx.h"//basic header
+#include <algorithm> // for std::partition in quicksort...generally used across all algorithms.
+#include <functional> // for std::less in quicksort, merge sort
+#include <iostream>
+#include <iterator>
+#include <time.h>//for shell sort
 using namespace std;
 int main()
 {

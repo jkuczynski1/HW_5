@@ -10,7 +10,7 @@ https://rosettacode.org/wiki/Sorting_algorithms/Insertion_sort#C.2B.2B
 https://rosettacode.org/wiki/Sorting_algorithms/Quicksort#C.2B.2B
 https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#C.2B.2B
 */
-//firt thing-includes...these are the same as rosettacode as I fould including these made things much easier overall.
+//first thing-includes...these are the same as rosettacode as I fould including these made things much easier overall.
 
 #include "stdafx.h"//basic header
 #include <algorithm> // for std::partition in quicksort...generally used across all algorithms.
@@ -19,6 +19,8 @@ https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#C.2B.2B
 #include <iterator>//used in bubble, insertion, merge sort methods.
 #include <time.h>//for shell sort
 using namespace std;
+
+
 int main()
 {
     return 0;

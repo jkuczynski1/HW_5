@@ -25,6 +25,7 @@ const int MaxNum = 10001;//for a file of any size < max integer is 10,000.
 int timecounter = 0; //counter to check the number of steps for each sort method.
 time_t timer;
 time_t resultTimer;
+//*Merge sort code*\\
 //
 //lines 28-40 and 50, 52, 54 (excet timecounter++;) came from rosettacode.
 template<typename RandomAccessIterator, typename Order>
@@ -68,9 +69,25 @@ void Merge_sort(RandomAccessIterator first, RandomAccessIterator last)
 	resultTimer= time(NULL);
 	cout << "Merge sort number of steps : " << timecounter << ", and finished by" << resultTimer <<" . "<< endl;
 }
+//*end of code*\\
+
+//*Bubble sort code*\\
+//*end of code*\\
+
+//*Insertion sort code*\\
+//*end of code*\\
+
+//*Quick sort code*\\
+//*end of code*\\
+
+//*Shell sort code*\\
+//*end of code*\\
+
+
+
 int main()
 {
-	Merge_sort(1, 3);
+	Merge_sort( 1, 3);
     return 0;
 }
 
